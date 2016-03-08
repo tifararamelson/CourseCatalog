@@ -27,5 +27,3 @@
 <br>
 
 <%= link_to 'New Course', new_course_path %>
-
-<%= link_to "logout", sign_out_path %>
