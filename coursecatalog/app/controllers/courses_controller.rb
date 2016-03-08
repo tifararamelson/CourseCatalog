@@ -1,8 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :require_login
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-
-  layout "main"
 
   # GET /courses
   # GET /courses.json
@@ -72,6 +69,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :number)
+      params.require(:course).permit(:name, :code)
     end
 end

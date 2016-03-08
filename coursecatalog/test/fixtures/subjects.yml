@@ -3,8 +3,8 @@
 
 one:
   name: MyString
-  code: MyString
+  s_id: MyString
 
 two:
   name: MyString
-  code: MyString
+  s_id: MyString
