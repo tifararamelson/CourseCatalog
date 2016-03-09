@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   resources :instructors
   get 'home/index'
+  get '/home', to: "home#index"
 
   resources :courses
   # The priority is based upon order of creation: first created -> highest priority.

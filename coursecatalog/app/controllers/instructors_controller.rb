@@ -2,8 +2,6 @@ class InstructorsController < ApplicationController
   before_action :require_login
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
 
-  #layout "main"
-
   # GET /instructors
   # GET /instructors.json
   def index
