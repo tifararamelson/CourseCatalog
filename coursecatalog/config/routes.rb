@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   resources :subjects
   resources :subjects
   resources :courses
