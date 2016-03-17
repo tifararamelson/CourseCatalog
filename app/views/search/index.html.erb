@@ -1,9 +1,18 @@
 <body>
+
+<%= form_tag("/search/results", method: "post") do %>
+<%=label_tag(:c, "Subject:") %>
 <select name="subject_id">
 	<%= @subjects.each do |subject| %>
     	<option value="<%= subject.id %>"><%= subject.name %></option>
     <% end %>
 </select>
+<br />
 
-<%= f.collection_select(:subject_id, Subject.all, :id, :name, { :prompt => 'Select a Subject', :selected => @address.state_id }, { class: 'form-control' }) %>
+<%=label_tag(:s, "Course:") %>
+<%= text_field_tag(:s) %>
+<br />
+<%= submit_tag("Search") %>
+
+<% end %>
 </body>

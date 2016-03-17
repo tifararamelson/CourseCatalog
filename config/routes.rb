@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'search/index'
+  post 'search/results' => 'search#results'
 
   get 'users/show'
 
