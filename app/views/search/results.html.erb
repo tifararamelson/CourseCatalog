@@ -1,5 +1,6 @@
 <h2> Results </h2>
 <br />
+<% if false %>
 <!-- To get the subject -->
 	<% @courses.each do |c| %>
 
@@ -21,8 +22,15 @@
 		<% end %>
 		</div>
 	<% end %>
-
+<% end %>
 <!--If user also enters course-->
-<%= @course_result %>
+<% @courses.each do |course| %>
+	<div>
+	<% if course.name.downcase.include?(@course_result.downcase)%> <!-- if it's not empty -->
+		<%= course.name %>
+	<% end %>
+	</div>
+<% end %>
 
+<!--don't forget to say if there are no results-->
 
