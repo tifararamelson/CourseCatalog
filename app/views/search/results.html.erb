@@ -1,6 +1,7 @@
 <h2> Results </h2>
 <br />
 <!-- To get the subject -->
+<% @hasResult = false %>
 	<% @courses.each do |c| %>
 
 		<% array = c.subject %>
@@ -16,11 +17,11 @@
 		<!--<%#= @final %>-->
 		<div>
 		<!--<%#= s.s_id == @final %>-->
-		<% @hasResult = false %>
+		
 		<% if @sub_id == @final %>
-			<% @hasResult = true %>
 			<% if c.name %>
 				<% if c.name.downcase.include?(@course_result.downcase)%>
+					<% @hasResult = true %>
 					<%= c.name %>
 				<% end %>
 			<% else %>
