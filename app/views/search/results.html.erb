@@ -1,30 +1,6 @@
-<%= array = @courses.find(1).subject %> <!-- this will be for when the person enters a course name-->
+<h2> Results </h2>
 <br />
-<%= s = array.split(",") %>
-<br />
-<br />
-<br />
-
-<% s.each do |id| %>
-	<% if id.include?("-") %>
-	<%= id %>
-	<br />
-	<%= s = id.split('"') %>
-	<br />
-	this is s[3]:
-	<% @final_id = s[3] %>
-	<!--<br />-->
-	<%= @final_id %>
-	<% end %>
-<% end %>
-
-
-
-<br />
-id for <%= @sub_result %>: <%= @sub_id %>
-**********
-<br />
-<% @subjects.each do |s| %>
+<!-- To get the subject -->
 	<% @courses.each do |c| %>
 
 		<% array = c.subject %>
@@ -45,15 +21,8 @@ id for <%= @sub_result %>: <%= @sub_id %>
 		<% end %>
 		</div>
 	<% end %>
-<% end %>
-	<!-- subject name is in the course-->
-	<!--<%# if c.subject == @sub_result %>-->
-	<!--<%# if @sub_result == c.name %>-->
-		<!--<#%= id %>-->
-	<!--<#% end %>-->
 
-
--------------------
-<%= @sub_result %>
+<!--If user also enters course-->
 <%= @course_result %>
-*******
+
+
