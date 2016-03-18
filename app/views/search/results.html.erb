@@ -1,6 +1,5 @@
 <h2> Results </h2>
 <br />
-<% if false %>
 <!-- To get the subject -->
 	<% @courses.each do |c| %>
 
@@ -17,13 +16,25 @@
 		<!--<%#= @final %>-->
 		<div>
 		<!--<%#= s.s_id == @final %>-->
+		<% @hasResult = false %>
 		<% if @sub_id == @final %>
-			<%= c.name %>
+			<% @hasResult = true %>
+			<% if c.name %>
+				<% if c.name.downcase.include?(@course_result.downcase)%>
+					<%= c.name %>
+				<% end %>
+			<% else %>
+				<%= c.name %>
+			<% end %>
 		<% end %>
 		</div>
 	<% end %>
-<% end %>
+	<% if !@hasResult %>
+		<p> There are no results to display </p>
+	<% end %>
 <!--If user also enters course-->
+
+<% if false %>
 <% @courses.each do |course| %>
 	<div>
 	<% if course.name.downcase.include?(@course_result.downcase)%> <!-- if it's not empty -->
@@ -31,6 +42,6 @@
 	<% end %>
 	</div>
 <% end %>
-
+<% end %>
 <!--don't forget to say if there are no results-->
 
