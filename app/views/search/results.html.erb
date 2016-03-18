@@ -1,4 +1,59 @@
+<%= array = @courses.find(1).subject %> <!-- this will be for when the person enters a course name-->
+<br />
+<%= s = array.split(",") %>
+<br />
+<br />
+<br />
+
+<% s.each do |id| %>
+	<% if id.include?("-") %>
+	<%= id %>
+	<br />
+	<%= s = id.split('"') %>
+	<br />
+	this is s[3]:
+	<% @final_id = s[3] %>
+	<!--<br />-->
+	<%= @final_id %>
+	<% end %>
+<% end %>
+
+
+
+<br />
+id for <%= @sub_result %>: <%= @sub_id %>
 **********
+<br />
+<% @subjects.each do |s| %>
+	<% @courses.each do |c| %>
+
+		<% array = c.subject %>
+		<% str = array.split(",") %>
+
+		<% str.each do |id| %>
+			<% if id.include?("-") %>
+				<% unit = id.split('"') %>
+				<% @final = unit[3] %>
+			<% end %>
+		<% end %>
+
+		<!--<%#= @final %>-->
+		<div>
+		<!--<%#= s.s_id == @final %>-->
+		<% if @sub_id == @final %>
+			<%= c.name %>
+		<% end %>
+		</div>
+	<% end %>
+<% end %>
+	<!-- subject name is in the course-->
+	<!--<%# if c.subject == @sub_result %>-->
+	<!--<%# if @sub_result == c.name %>-->
+		<!--<#%= id %>-->
+	<!--<#% end %>-->
+
+
+-------------------
 <%= @sub_result %>
 <%= @course_result %>
 *******

@@ -32,5 +32,6 @@ parsed_file3 = JSON.parse(js3)
 parsed_file3.each do |line|
 	name = line["name"]
 	code = line["code"]
-	Course.create(name: name, code: code)
+	subject = line["subjects"][0]
+	Course.create(name: name, code: code, subject: subject)
 end
