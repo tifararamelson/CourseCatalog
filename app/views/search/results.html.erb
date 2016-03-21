@@ -17,12 +17,19 @@
 		<!--<%#= @final %>-->
 		<div>
 		<!--<%#= s.s_id == @final %>-->
-		
 		<% if @sub_id == @final %>
 			<% if c.name %>
 				<% if c.name.downcase.include?(@course_result.downcase)%>
 					<% @hasResult = true %>
-					<%= c.name %>
+					<!--<%#= form_tag("/home#index", method: "post") do %>-->
+						<%= c.name %>
+						<!--<%#= label_tag(:course_name, c.name) %>-->
+						<!--<button name="enroll", type="submit"> Enroll </button>-->
+						<%= button_to 'Enroll', {:controller => "home", :action => "index", :course => c.name, :id => c.id} , :method=>:post  %> <!-- add id c.id--->
+					<%# end %>
+					
+
+					<!--<%#= button_tag("Enroll") %>-->
 				<% end %>
 			<% else %>
 				<%= c.name %>
@@ -33,16 +40,3 @@
 	<% if !@hasResult %>
 		<p> There are no results to display </p>
 	<% end %>
-<!--If user also enters course-->
-
-<% if false %>
-<% @courses.each do |course| %>
-	<div>
-	<% if course.name.downcase.include?(@course_result.downcase)%> <!-- if it's not empty -->
-		<%= course.name %>
-	<% end %>
-	</div>
-<% end %>
-<% end %>
-<!--don't forget to say if there are no results-->
-

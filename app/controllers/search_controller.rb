@@ -16,6 +16,7 @@ class SearchController < ApplicationController
   	@sub_id = @subjects.find(params[:subject_id]).s_id
   	@sub_result = @subjects.find(params[:subject_id]).name
 
+ 
   	#redirect_to "/search/results"
   end
 end

@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :instructors
   get 'home/index'
   get '/home', to: "home#index"
+  post 'home/index'
+  post '/home', to: "home#index"
 
   resources :courses
   # The priority is based upon order of creation: first created -> highest priority.

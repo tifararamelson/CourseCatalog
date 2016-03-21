@@ -4,7 +4,12 @@
 
 <p> The courses you are enrolled in are: </p>
 <p> <% @enrollments.each do |e| %>
-<p> <%= Course.find(Enrollment.find(e).course_id).name %> </p>
-
+	<p> <% if Enrollment.find(e).user_id == current_user.id %> </p>
+		<p> <%= Course.find(Enrollment.find(e).course_id).name %> </p>
+	<p> <% end %> </p>
 <p> <% end %> </p>
+<!--<p> <%= @course_enrolled %>-->
+
+
+
 
