@@ -14,22 +14,13 @@
 			<% end %>
 		<% end %>
 
-		<!--<%#= @final %>-->
 		<div>
-		<!--<%#= s.s_id == @final %>-->
 		<% if @sub_id == @final %>
 			<% if c.name %>
 				<% if c.name.downcase.include?(@course_result.downcase)%>
 					<% @hasResult = true %>
-					<!--<%#= form_tag("/home#index", method: "post") do %>-->
-						<%= c.name %>
-						<!--<%#= label_tag(:course_name, c.name) %>-->
-						<!--<button name="enroll", type="submit"> Enroll </button>-->
-						<%= button_to 'Enroll', {:controller => "home", :action => "index", :course => c.name, :id => c.id} , :method=>:post  %> <!-- add id c.id--->
-					<%# end %>
-					
-
-					<!--<%#= button_tag("Enroll") %>-->
+					<%= c.name %>
+					<%= button_to 'Enroll', {:controller => "home", :action => "index", :course => c.name, :id => c.id} , :method=>:post %>
 				<% end %>
 			<% else %>
 				<%= c.name %>
