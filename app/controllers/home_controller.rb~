@@ -3,8 +3,18 @@ class HomeController < ApplicationController
 
   def index
 	@enrollments = Enrollment.all
-	#@user = User.all
-	#@user_email = current_user.email
-	#@user_email = current_user.email
+
+	@course_enrolled = params[:course]
+	
+	puts "**********************"
+	puts Enrollment.where(course_id: params[:id])
+	puts "***********************"
+
+	if @course_enrolled && Enrollment.where(course_id: params[:id]).empty?
+		#need to add new course to enrollments
+		Enrollment.create(course_id: params[:id], user_id: current_user.id)
+		@enrollments = Enrollment.all
+	end
+
   end
 end
