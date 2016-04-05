@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			One of three columns
+		</div>
+		<div class="col-sm-4">
+			One of three columns2
+		</div>
+		<div class="col-sm-4">
+			One of three columns3
+		</div>
+	</div>
+</div> 
+
+<h1>Listing Instructors</h1>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instructors.each do |instructor| %>
+      <tr>
+        <td><%= instructor.first_name %></td>
+        <td><%= instructor.last_name %></td>
+        <td><%= instructor.email %></td>
+        <td><%= link_to 'Show', instructor %></td>
+        <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
+        <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<%= link_to 'New Instructor', new_instructor_path %>

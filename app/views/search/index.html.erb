@@ -1,19 +1,25 @@
 <body>
 
-<%= form_tag("/search/results", method: "post") do %>
+<%= form_tag(search_results_path, method: "get", remote: true) do  %> 
 <%=label_tag(:c, "Subject:") %>
 <select name="subject_id">
 	<%= @subjects.each do |subject| %>
     	<option value="<%= subject.id %>"><%= subject.name %></option>
-    <% end %>
+	<% end %>
 </select>
 <br />
+<!--<#% end %>-->
 
+<!--<%#= form_tag(search_results_path, method: "get", remote: true) do %>-->
 <%=label_tag(:s, "Course:") %>
 <%= text_field_tag(:s) %>
 <br />
 <%= submit_tag("Search") %>
-
 <% end %>
+
+<div class="row col-md-offset-1 col-md-11">
+  <div id="search_results">
+  </div>
+</div>
 
 </body>

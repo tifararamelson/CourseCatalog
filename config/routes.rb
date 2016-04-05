@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+#get 'ajax/:action', to: 'ajax#:action', :defaults => { :format => 'js' }
+#get 'myaction' => 'mycontroller#myaction', defaults: { format: 'js' }
+
   get 'search/index'
-  post 'search/results' => 'search#results'
+  
+  get 'search/results' => 'search#results'
 
   get 'users/show'
 

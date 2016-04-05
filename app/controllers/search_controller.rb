@@ -10,6 +10,8 @@ class SearchController < ApplicationController
   end
 
   def results
+    respond_to :js
+
   	@courses = Course.all
   	@course_result = params[:s]
 
@@ -18,7 +20,20 @@ class SearchController < ApplicationController
   	@sub_id = @subjects.find(params[:subject_id]).s_id
   	@sub_result = @subjects.find(params[:subject_id]).name
 
- 
-  	#redirect_to "/search/results"
+    #@javascript
+
+   # render "results.js.erb"
+   render :js => @courses
+
+   # respond_to do |format|
+      #format.html { render(:text => "not implemented") }
+   #   format.js
+    #end
+      #format.html { render 'new'}
+     # format.js { render 'results.js.erb'}
+      #$.ajax url: "/uploads/refresh_table", format: 'js'
+
+   # end
   end
+
 end

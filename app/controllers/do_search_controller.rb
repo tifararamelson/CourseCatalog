@@ -1,0 +1,2 @@
+class DoSearchController < ApplicationController
+end

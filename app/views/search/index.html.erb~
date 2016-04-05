@@ -1,0 +1,24 @@
+<body>
+
+<%= form_tag("/search/results", method: "post") do %>
+<%=label_tag(:c, "Subject:") %>
+<select name="subject_id">
+	<%= @subjects.each do |subject| %>
+    	<option value="<%= subject.id %>"><%= subject.name %></option>
+    <% end %>
+</select>
+<br />
+
+<%=label_tag(:s, "Course:") %>
+<%= text_field_tag(:s) %>
+<br />
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<%= submit_tag("Search") %>
+</div>
+</div>
+</div>
+<% end %>
+
+</body>
