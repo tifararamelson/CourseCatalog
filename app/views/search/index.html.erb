@@ -1,25 +1,42 @@
 <body>
 
-<%= form_tag(search_results_path, method: "get", remote: true) do  %> 
-<%=label_tag(:c, "Subject:") %>
-<select name="subject_id">
-	<%= @subjects.each do |subject| %>
-    	<option value="<%= subject.id %>"><%= subject.name %></option>
-	<% end %>
-</select>
-<br />
-<!--<#% end %>-->
-
-<!--<%#= form_tag(search_results_path, method: "get", remote: true) do %>-->
-<%=label_tag(:s, "Course:") %>
-<%= text_field_tag(:s) %>
-<br />
-<%= submit_tag("Search") %>
-<% end %>
-
-<div class="row col-md-offset-1 col-md-11">
-  <div id="search_results">
+<div class="col-md-offset-2 col-md-4">
+  <h2>Search</h2>
   </div>
+  <div class="col-md-offset-1 col-md-6">
+	<%= form_tag(search_results_path, method: "get", remote: true, id: "search") do  %>
+
+	<div>
+	<%=label_tag(:c, "Subject:") %>
+	<select name="subject_id">
+		<%= @subjects.each do |subject| %>
+	    	<option value="<%= subject.id %>"><%= subject.name %></option>
+		<% end %>
+	</select>
+	</div>
+
+	<div>
+	<label> Course: </label>
+	<%= text_field_tag(:s, "", onkeyup:"submitFrmAjax();") %>
+	</div>
+	
+	<div class="col-md-offset-1 col-md-4">
+		<%= button_to("Search", onclick: "submitFrmAjax();", class: "btn btn-default") %>
+		<% end %>
+	</div>
+
+	<div class="row col-md-offset-1 col-md-11">
+	  <div id="search_results">	
+	  </div>
+	</div>
 </div>
 
+<script>
+function submitFrmAjax(){
+   $.ajax({
+         url : "/search/results",
+         data : $("form#search").serialize()
+    });
+}
+</script>
 </body>

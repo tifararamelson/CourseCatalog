@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'search/index'
   
-  get 'search/results' => 'search#results'
+  get 'search/results' => 'search#results'#, defaults: {format: 'js'}
 
   get 'users/show'
 
