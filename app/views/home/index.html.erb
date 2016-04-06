@@ -1,19 +1,24 @@
-<h1>Hello <%= current_user.email %>! </h1>
-<h2>You have been a user since <%= current_user.created_at %> </h2>
-<h3>Use the side bar to navigate the Course Catalog site.</h3>
+</body>
+	<div>
+		<h1>Hello <%= current_user.email %>! </h1>
+		<h2> Welcome to the Course Catalog </h2>
+	</div>
 
-<% @isEnrolled = false %>
-<p> <b>The courses you are enrolled in are: </b></p>
-<p> <% @enrollments.each do |e| %>
-	<p> <% if Enrollment.find(e).user_id == current_user.id %> </p>
-		<p> <%= Course.find(Enrollment.find(e).course_id).name %> </p>
-		<% @isEnrolled = true %>
-	<p> <% end %> </p>
-<p> <% end %> </p>
-<% if !@isEnrolled %>
-	<p>None</p>
-<% end %> 
-
+		<% @isEnrolled = false %>
+		<b>The courses you are enrolled in are: </b>
+		<% @enrollments.each do |e| %>
+			<div>
+			<% if Enrollment.find(e).user_id == current_user.id %>
+				<%= Course.find(Enrollment.find(e).course_id).name %>
+				<% @isEnrolled = true %>
+			<% end %>
+			</div>
+		<% end %>
+	
+		<% if !@isEnrolled %>
+			None
+		<% end %> 
+</body>
 
 
 
