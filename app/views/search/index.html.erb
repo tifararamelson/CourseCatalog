@@ -4,7 +4,7 @@
   <h2>Search</h2>
   </div>
   <div class="col-md-offset-1 col-md-6">
-	<%= form_tag(search_results_path, method: "get", remote: true, role: "form",class: "form", id: "search") do  %>
+	<%= form_tag(search_results_path, method: "get", remote: true, role: "form",class: "form", id: "search", onsubmit: "return false") do  %>
 
 	<div>
 	<%=label_tag(:c, "Subject:") %>
@@ -19,9 +19,8 @@
 	<label> Course: </label>
 	<%= text_field_tag(:s, "", onkeyup:"submitFrmAjax();") %>
 	</div>
-	
-
 	<% end %>
+
 </div>
 <div class="row col-md-offset-1 col-md-11">
 	<div id="search_results">	
